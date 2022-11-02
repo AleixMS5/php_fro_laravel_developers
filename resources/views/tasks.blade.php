@@ -9,10 +9,10 @@
             @foreach ($tasks as $task)
 
         <tr>
-            <td> <?=$task->id; ?></td>
-            <td> <?=$task->title; ?></td>
-            <td> <?=$task->description; ?></td>
-            <td> <?=$task->completed; ?></td>
+            <td> {{$task->id}}</td>
+            <td> {{$task->title}}</td>
+            <td> {{$task->description}}</td>
+            <td> {{$task->completed}}</td>
         </tr>
             @endforeach
 
