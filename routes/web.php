@@ -1,7 +1,8 @@
 <?php
 
+use App\Models\Task;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,48 +14,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $task1 =  new stdClass();
-    $task1->id  =1;
-    $task1->title ="task1";
-    $task1->description ="task1";
-    $task1->completed =1;
-    $tasks = [
-        $task1
-    ];
-    return view('tasks',['tasks'=>$tasks]);
-});
+Route::get('/', [TaskController::class,'index']);
 
 Route::get('/contact', function () {
     return view('contact');
 });
-
 Route::get('/about', function () {
     return view('about');
 });
 Route::get('/tasks', function () {
-    $task1 =  new stdClass();
-    $task1->id  =1;
-    $task1->title ="task1";
-    $task1->description ="task1";
-    $task1->completed =1;
-    $tasks = [
-        $task1
-    ];
-    return view('tasks',['tasks'=>$tasks]);
+//    $task1 =Task::create([
+//        'title'=>'tasca1',
+//        'description'=>'tasca1',
+//        'completed'=>0
+//    ]);
+//
+//    $tasks = [
+//        $task1
+//    ];
+    return view('tasks',['tasks'=>Task::all()]);
 });
 Route::get('/users', function () {
     return view('users');
 });
-
 Route::get('/index', function () {
-    $task1 =  new stdClass();
-    $task1->id  =1;
-    $task1->title ="task1";
-    $task1->description ="task1";
-    $task1->completed =1;
-    $tasks = [
-        $task1
-    ];
-    return view('tasks',['tasks'=>$tasks]);
+//    $task1 =Task::create([
+//        'title'=>'tasca1',
+//        'description'=>'tasca1',
+//        'completed'=>0
+//    ]);
+//    $tasks = [
+//        $task1
+//    ];
+    return view('tasks',['tasks'=>Task::all()]);
 });
